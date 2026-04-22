@@ -1,6 +1,6 @@
 ﻿namespace CApplication.Utils
 {
-    internal static class UtilMethods
+    public static class UtilMethods
     {
         internal static float CalculateAverage(int[] array)
         {
@@ -11,7 +11,7 @@
             }
             return (float)sum / array.Length;
         }
-        internal static void ValidateFilePath(string filePath, string fileName)
+        public static void ValidateFilePath(string filePath, string fileName)
         {
             System.Diagnostics.Debug.WriteLine($"Валидация пути: {filePath}/{fileName}");
 

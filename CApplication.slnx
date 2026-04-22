@@ -1,3 +1,4 @@
 <Solution>
-  <Project Path="CApplication.csproj" />
+  <Project Path="src/CApplication.Main/CApplication.Main.csproj" Id="c7023c7c-21d0-49e7-a8cd-22deb3979727" />
+  <Project Path="tests/CApplication.Tests/CApplication.Tests.csproj" Id="5801c6dc-b41a-4ef7-a816-de78c07cbf8a" />
 </Solution>

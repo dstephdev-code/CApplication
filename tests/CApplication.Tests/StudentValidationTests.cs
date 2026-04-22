@@ -1,5 +1,4 @@
 ﻿using CApplication.Utils;
-using Xunit;
 
 namespace CApplication.Tests
 {
