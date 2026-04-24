@@ -28,20 +28,24 @@ At the moment, the application reads a list of students from a JSON file, calcul
 ## Project Structure
 
 ```text
-CApplication/
-├── Models/
-│   └── Student.cs
-├── Repositories/
-│   ├── IStudentRepository.cs
-│   ├── JsonStudentRepository.cs
-│   └── TestDataStudentRepository.cs
-├── Tests/
-│   └── StudentValidationTests.cs
-├── Utils/
-│   └── UtilMethods.cs
-├── Configuration.cs
-├── Program.cs
-└── CApplication.csproj
+CApplication.sln
+├── src/
+│   └── CApplication.Main/
+│       ├── Models/
+│       │   └── Student.cs
+│       ├── Repositories/
+│       │   ├── IStudentRepository.cs
+│       │   ├── JsonStudentRepository.cs
+│       │   └── TestDataStudentRepository.cs
+│       ├── Utils/
+│       │   └── UtilMethods.cs
+│       ├── Configuration.cs
+│       ├── Program.cs
+│       └── CApplication.csproj
+└── tests/
+    └── CApplication.Tests/
+        ├── StudentValidationTests.cs
+        └── CApplication.Tests.csproj
 ```
 
 ## Technologies Used
@@ -127,7 +131,6 @@ This is still a learning project and has several limitations:
 - tests are currently minimal
 - validation is basic
 - error handling can be improved
-- test code is still inside the main project structure
 - there is no API layer yet
 
 ## Next Step
