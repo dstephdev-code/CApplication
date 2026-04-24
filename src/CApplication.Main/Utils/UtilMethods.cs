@@ -2,15 +2,6 @@
 {
     public static class UtilMethods
     {
-        internal static float CalculateAverage(int[] array)
-        {
-            int sum = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                sum += array[i];
-            }
-            return (float)sum / array.Length;
-        }
         public static void ValidateFilePath(string filePath, string fileName)
         {
             System.Diagnostics.Debug.WriteLine($"Валидация пути: {filePath}/{fileName}");
@@ -20,10 +11,10 @@
             string fullBasePath = Path.GetFullPath(baseDirectory);
 
             if (!fullPath.StartsWith(fullBasePath, StringComparison.OrdinalIgnoreCase))
-                throw new InvalidOperationException($"Доступ запрещён: {fullPath}");
+                throw new ArgumentException($"Доступ запрещён: {fullPath}");
 
             if (Path.GetExtension(fileName) != ".json")
-                throw new InvalidOperationException($"Разрешены только JSON файлы");
+                throw new ArgumentException($"Разрешены только JSON файлы");
         }
     }
 }

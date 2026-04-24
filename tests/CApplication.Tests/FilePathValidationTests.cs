@@ -2,14 +2,14 @@
 
 namespace CApplication.Tests
 {
-    public class FilePathValidation
+    public class FilePathValidationTests
     {
         [Fact]
         public void ValidateFilePath_InvalidPath_ThrowsException()
         {
             string invalidPath = "../../sensitive";
 
-            Assert.Throws<InvalidOperationException>(
+            Assert.Throws<ArgumentException>(
                 () => UtilMethods.ValidateFilePath(invalidPath, "file.json")
             );
         }
@@ -27,7 +27,7 @@ namespace CApplication.Tests
         {
             string filePath = Configuration.DATA_PATH;
 
-            Assert.Throws<InvalidOperationException>(
+            Assert.Throws<ArgumentException>(
                 () => UtilMethods.ValidateFilePath(filePath, "file.txt")
             );
         }

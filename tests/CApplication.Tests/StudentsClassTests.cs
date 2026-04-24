@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace CApplication.Tests
 {
-    public class StudentsClassValidation
+    public class StudentsClassTests
     {
         [Fact]
         public void Constructor_ShouldCreateStudent_WhenDataIsValid()

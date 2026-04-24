@@ -6,6 +6,7 @@ namespace CApplication.Models
     {
         public string Name { get; }
         public IReadOnlyList<int> Grades { get; }
+        [JsonIgnore]
         public double AverageGrade => Grades.Average();
 
         [JsonConstructor]
