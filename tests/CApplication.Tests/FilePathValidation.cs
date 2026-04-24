@@ -2,7 +2,7 @@
 
 namespace CApplication.Tests
 {
-    public class StudentValidationTests
+    public class FilePathValidation
     {
         [Fact]
         public void ValidateFilePath_InvalidPath_ThrowsException()

@@ -1,29 +1,31 @@
-﻿using CApplication.Utils;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Text.Json.Serialization;
 
 namespace CApplication.Models
 {
-    internal class Student
+    public class Student
     {
-        public required string Name { get; set; }
-        public required int[] Grades { get; set; }
-        public float AverageGrade => UtilMethods.CalculateAverage(Grades);
+        public string Name { get; }
+        public IReadOnlyList<int> Grades { get; }
+        public double AverageGrade => Grades.Average();
 
-        public Student()
+        [JsonConstructor]
+        public Student(string name, IReadOnlyList<int> grades)
         {
-        }
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Name cannot be empty", nameof(name));
 
-        [SetsRequiredMembers]
-        public Student(string _name, int[] _grades)
-        {
-            Name = _name;
-            Grades = new int[_grades.Length];
-            Array.Copy(_grades, Grades, _grades.Length);
-        }
+            ArgumentNullException.ThrowIfNull(grades);
 
-        public bool IsValid()
-        {
-            return !string.IsNullOrWhiteSpace(Name) && Grades?.Length > 0 && Grades.All(g => g >= 0 && g <= 100);
+            var gradesArray = grades.ToArray();
+
+            if (gradesArray.Length == 0)
+                throw new ArgumentException("Grades cannot be empty", nameof(grades));
+
+            if (gradesArray.Any(g => g < 0 || g > 100))
+                throw new ArgumentException("Grades must be between 0 and 100", nameof(grades));
+
+            Name = name;
+            Grades = gradesArray;
         }
     }
 }
